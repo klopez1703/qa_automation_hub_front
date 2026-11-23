@@ -1,0 +1,160 @@
+/* =========================================================
+   SELECTOR DE ESCENARIOS (SCENARIO SELECTOR)
+   ========================================================= */
+
+.ss-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.ss-header {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.ss-step-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.ss-header-info {
+  flex: 1;
+}
+
+.ss-title {
+  font-size: 17px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.ss-subtitle {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.ss-header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ss-outline-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.ss-outline-btn:hover {
+  background: var(--surface-alt);
+  border-color: var(--ink);
+}
+
+.ss-outline-btn--edit {
+  padding: 6px 15px;
+  font-weight: 700;
+}
+
+.ss-empty-state {
+  text-align: center;
+  padding: 26px 12px;
+}
+
+.ss-empty-title {
+  display: block;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.ss-empty-desc {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.ss-primary-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.ss-primary-btn:hover {
+  background: var(--btn-primary-hover);
+}
+
+.ss-pick-item {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.ss-pick-item--selected {
+  background: var(--info-bg);
+  border-color: var(--info-border);
+}
+
+.ss-checkbox {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  cursor: pointer;
+  accent-color: var(--btn-primary-bg);
+}
+
+.ss-scenario-info {
+  flex: 1;
+}
+
+.ss-scenario-name {
+  display: block;
+  color: var(--ink);
+}
+
+.ss-scenario-meta {
+  color: var(--muted);
+}
+
+.ss-priority-tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--dangerbg);
+  color: var(--danger);
+}
+
+.ss-exec-type-field {
+  margin-top: 20px;
+}
+
+.ss-exec-type-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 8px;
+}

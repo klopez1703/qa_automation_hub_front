@@ -1,0 +1,160 @@
+.qa-toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  width: calc(100vw - 40px);
+  pointer-events: none;
+}
+
+.qa-toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 16px 35px rgba(2, 6, 23, 0.55);
+  overflow: hidden;
+  pointer-events: auto;
+  animation: qaToastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qa-toast--success {
+  border-left: 4px solid #22c55e;
+}
+
+.qa-toast--error {
+  border-left: 4px solid #ef4444;
+}
+
+.qa-toast--warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.qa-toast--info {
+  border-left: 4px solid #3b82f6;
+}
+
+.qa-toast__icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 1px;
+}
+
+.qa-toast--success .qa-toast__icon {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+.qa-toast--error .qa-toast__icon {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+.qa-toast--warning .qa-toast__icon {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+}
+
+.qa-toast--info .qa-toast__icon {
+  background: rgba(59, 130, 246, 0.18);
+  color: #60a5fa;
+}
+
+.qa-toast__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.qa-toast__title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 3px;
+}
+
+.qa-toast__message {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  word-break: break-word;
+}
+
+.qa-toast__close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.qa-toast__close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.qa-toast__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform-origin: left;
+  animation: qaToastProgress linear forwards;
+}
+
+.qa-toast--success .qa-toast__progress {
+  background: #22c55e;
+}
+
+.qa-toast--error .qa-toast__progress {
+  background: #ef4444;
+}
+
+.qa-toast--warning .qa-toast__progress {
+  background: #f59e0b;
+}
+
+.qa-toast--info .qa-toast__progress {
+  background: #3b82f6;
+}
+
+@keyframes qaToastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes qaToastProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}

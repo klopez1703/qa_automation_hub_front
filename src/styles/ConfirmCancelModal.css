@@ -1,0 +1,110 @@
+/* =========================================================
+   MODAL DE CONFIRMACIÓN DE CANCELACIÓN (CONFIRM CANCEL MODAL)
+   ========================================================= */
+
+@keyframes ccmFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ccm-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-bg);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.ccm-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: ccmFadeIn 0.2s ease-out;
+}
+
+.ccm-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.ccm-title {
+  margin: 0 0 10px 0;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.ccm-description {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.ccm-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.ccm-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.ccm-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ccm-btn--secondary {
+  border: 1px solid var(--border-strong);
+  background: var(--surface-alt);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.ccm-btn--secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.ccm-btn--danger {
+  border: none;
+  background: var(--danger);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+}
+
+.ccm-btn--danger:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+@media (max-width: 420px) {
+  .ccm-actions {
+    flex-direction: column-reverse;
+  }
+}

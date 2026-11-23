@@ -1,0 +1,119 @@
+/* =========================================================
+   FORMULARIO DE CONEXIÓN Y PARÁMETROS DEL MÓDULO
+   ========================================================= */
+
+.mdf-wrapper {
+  margin-top: 16px;
+}
+
+.mdf-card {
+  background: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.mdf-card--spaced {
+  margin-bottom: 16px;
+}
+
+.mdf-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mdf-header--lg {
+  margin-bottom: 16px;
+}
+
+.mdf-step-badge {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.mdf-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.mdf-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 2px 0 0 0;
+}
+
+.mdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mdf-field--full {
+  grid-column: span 2;
+}
+
+.mdf-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-body);
+}
+
+.mdf-label--danger {
+  color: var(--danger);
+}
+
+.mdf-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  margin-top: 4px;
+  font-size: 0.875rem;
+  background-color: var(--input-bg);
+  color: var(--text-strong);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.mdf-input:focus {
+  outline: none;
+  border-color: var(--btn-brand-bg);
+}
+
+.mdf-input--select {
+  background-color: var(--input-bg);
+  cursor: pointer;
+}
+
+.mdf-loading {
+  text-align: center;
+  padding: 24px 0;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .mdf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mdf-field--full {
+    grid-column: span 1;
+  }
+}

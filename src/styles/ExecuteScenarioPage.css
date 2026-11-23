@@ -1,0 +1,82 @@
+/* =========================================================
+   DASHBOARD DE EJECUCIÓN DE PRUEBAS
+   ========================================================= */
+
+/* ---------- Selectores de Proyecto / Módulo / Submódulo ---------- */
+
+.db-project-selectors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.db-field--no-margin {
+  margin-bottom: 0;
+}
+
+.db-workspace {
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.db-workspace--unlocked {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.db-workspace--locked {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.db-lock-banner {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.db-lock-pill {
+  display: inline-block;
+  background: var(--surface-alt);
+  color: var(--ink);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-md);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.db-execution-panel {
+  margin-top: 20px;
+}
+
+.db-execution-title {
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 15px;
+}
+
+.db-execution-counter {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-left: 10px;
+}
+
+.db-matrix-modal-title {
+  margin: 0;
+  color: var(--info-text);
+}
+
+.db-matrix-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(90vh - 60px);
+}
+
+@media (max-width: 768px) {
+  .db-project-selectors {
+    grid-template-columns: 1fr;
+  }
+}

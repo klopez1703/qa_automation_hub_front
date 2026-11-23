@@ -1,0 +1,218 @@
+/* =========================================================
+   CHECKLIST DE EJECUCIÓN EN TIEMPO REAL (EXECUTION CHECKLIST)
+   ========================================================= */
+
+.ec-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.ec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.ec-title {
+  margin: 0;
+  color: var(--ink);
+}
+
+.ec-status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ec-status-badge--progress {
+  background: var(--info-bg-strong);
+  color: var(--info-text);
+}
+
+.ec-status-badge--success {
+  background: var(--success-bg-strong);
+  color: var(--success-text);
+}
+
+.ec-status-badge--fail {
+  background: var(--dangerbg);
+  color: var(--danger-text-strong);
+}
+
+.ec-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ec-step-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.ec-step-item--pending {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+}
+
+.ec-step-item--running {
+  background: var(--info-bg);
+  border: 1px solid var(--info-border);
+}
+
+.ec-step-item--completed {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+}
+
+.ec-step-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ec-step-number {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.ec-step-desc {
+  font-weight: 400;
+  color: var(--text-body);
+}
+
+.ec-step-desc--running {
+  font-weight: 700;
+  color: var(--info-text);
+}
+
+.ec-step-desc--completed {
+  color: var(--success-text-strong);
+}
+
+.ec-step-state {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.ec-step-state--completed {
+  color: var(--success-accent);
+  font-weight: 700;
+}
+
+.ec-step-state--running {
+  color: var(--info-text);
+  font-weight: 700;
+}
+
+.ec-step-state--pending {
+  color: var(--muted);
+}
+
+/* ---------- Modal dinámico (Inicio / Éxito / Fallo) ---------- */
+
+.ec-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.ec-modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  width: 420px;
+  max-width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.ec-modal-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.ec-modal-title {
+  margin: 0 0 10px 0;
+  color: var(--ink);
+}
+
+.ec-modal-title--danger {
+  color: var(--danger);
+}
+
+.ec-modal-text {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+.ec-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ec-btn {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.ec-btn--primary {
+  padding: 12px 20px;
+  background: var(--btn-brand-bg);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ec-btn--primary:hover {
+  background: var(--btn-brand-hover);
+}
+
+.ec-btn--danger {
+  padding: 12px;
+  background: var(--danger);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ec-btn--danger:hover {
+  background: var(--danger-hover);
+}
+
+.ec-btn--secondary {
+  padding: 10px;
+  background: var(--surface-subtle);
+  color: var(--ink);
+  border: 1px solid var(--border-strong);
+  font-size: 13px;
+}
+
+.ec-btn--secondary:hover {
+  background: var(--surface-hover);
+}

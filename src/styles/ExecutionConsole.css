@@ -1,0 +1,59 @@
+/* =========================================================
+   CONSOLA DE EJECUCIÓN EN TIEMPO REAL (EXECUTION CONSOLE)
+   ========================================================= */
+
+.exc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.exc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.exc-title {
+  margin: 0;
+  color: var(--ink);
+}
+
+.exc-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.exc-download-link {
+  padding: 4px 12px;
+  background-color: var(--btn-brand-bg);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.exc-download-link:hover {
+  background-color: var(--btn-brand-hover);
+}
+
+.exc-terminal {
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,612 @@
+/* =========================================================
+   GESTOR INTELIGENTE DE MATRIZ DE PRUEBAS (.XLSX)
+   ========================================================= */
+
+.mg-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--surface);
+  color: var(--text-body);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.mg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-strong);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mg-title {
+  color: var(--ink);
+  margin: 0;
+}
+
+.mg-mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-subtle);
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.mg-mode-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.mg-mode-label--manual-active {
+  color: var(--ink);
+}
+
+.mg-mode-label--upload-active {
+  color: var(--success-accent);
+}
+
+.mg-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.mg-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mg-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--btn-primary-bg);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.mg-switch-slider--upload {
+  background-color: var(--success-accent);
+}
+
+.mg-switch-thumb {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-radius: 50%;
+  transform: translateX(0);
+}
+
+.mg-switch-thumb--upload {
+  transform: translateX(24px);
+}
+
+/* ---------- Zona de carga de Excel (Dropzone) ---------- */
+
+.mg-dropzone {
+  background: var(--success-bg);
+  border: 1px dashed var(--success-border);
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.mg-dropzone--dragging {
+  border-color: var(--success-accent);
+  background: var(--success-bg-strong);
+}
+
+.mg-dropzone-title {
+  color: var(--success-text-strong);
+  margin: 0 0 10px 0;
+}
+
+.mg-dropzone-desc {
+  color: var(--success-text);
+  font-size: 0.95rem;
+  margin: 0 0 15px 0;
+}
+
+.mg-hidden-input {
+  display: none;
+}
+
+.mg-dropzone-btn {
+  pointer-events: none;
+  padding: 10px 20px;
+  background: var(--success-accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.mg-dropzone-loading {
+  color: var(--success-text);
+  margin: 15px 0 0 0;
+  font-weight: 700;
+}
+
+/* ---------- Panel de Información General y Azure DevOps ---------- */
+
+.mg-info-panel {
+  background: var(--surface-alt);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border);
+}
+
+.mg-azure-box {
+  background: var(--info-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid var(--info-border);
+}
+
+.mg-azure-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--info-text-strong);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mg-azure-row {
+  display: flex;
+  gap: 10px;
+}
+
+.mg-azure-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.mg-azure-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mg-section-title {
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0 0 15px 0;
+}
+
+.mg-section-title--inline {
+  margin: 0;
+}
+
+.mg-history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.mg-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  margin-bottom: 4px;
+}
+
+.mg-label--modal {
+  color: var(--text-strong);
+}
+
+.mg-label--green {
+  color: var(--success-text);
+}
+
+.mg-input {
+  width: 100%;
+  border: 1px solid var(--input-border);
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 0.88rem;
+  color: var(--text-strong);
+  background-color: var(--input-bg);
+}
+
+.mg-input--readonly {
+  background-color: var(--input-readonly-bg);
+  cursor: not-allowed;
+  color: var(--text-body);
+  font-weight: 600;
+  border-color: var(--input-border);
+}
+
+.mg-input--readonly-bold {
+  font-weight: 700;
+}
+
+.mg-input--highlighted {
+  border-color: var(--success-accent);
+  background-color: var(--success-bg);
+}
+
+/* ---------- Tabla de escenarios ---------- */
+
+.mg-table-section {
+  margin-bottom: 20px;
+}
+
+.mg-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mg-add-fbqa-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mg-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.mg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.mg-thead-row {
+  background: #161e33;
+  color: #ffffff;
+  text-align: left;
+}
+
+.mg-th {
+  padding: 10px;
+}
+
+.mg-th--center {
+  text-align: center;
+}
+
+.mg-tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.mg-tr:hover {
+  background-color: var(--surface-alt);
+}
+
+.mg-td {
+  padding: 10px;
+  color: var(--text-body);
+}
+
+.mg-td--id {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mg-td--actions {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mg-td--empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+
+.mg-action-btn {
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mg-action-btn--edit {
+  background: var(--info-bg-strong);
+  color: var(--info-text);
+  margin-right: 5px;
+}
+
+.mg-action-btn--delete {
+  background: var(--dangerbg);
+  color: var(--danger-text-strong);
+}
+
+/* ---------- Botón generar Excel y banner descarga ---------- */
+
+.mg-generate-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.mg-generate-btn:hover:not(:disabled) {
+  background: var(--btn-primary-hover);
+}
+
+.mg-generate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mg-download-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.mg-download-msg {
+  font-weight: 600;
+  color: var(--success-text-strong);
+  margin: 0 0 8px 0;
+}
+
+.mg-download-btn {
+  color: var(--info-text);
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Modal Crear / Editar Caso ---------- */
+
+.mg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.mg-modal-content {
+  background: var(--surface);
+  color: var(--text-body);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 1336px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+  position: relative;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.mg-modal-title {
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.mg-modal-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mg-modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mg-modal-block {
+  margin-bottom: 10px;
+}
+
+.mg-modal-block--lg {
+  margin: 15px 0;
+}
+
+.mg-loading-defs {
+  padding: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Diseño de Guión: Pasos Detallados ---------- */
+
+.mg-steps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mg-steps-title {
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 700;
+}
+
+.mg-add-step-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mg-steps-scroll {
+  overflow-x: auto;
+}
+
+.mg-steps-grid-head {
+  display: grid;
+  grid-template-columns: 100px 110px 1.5fr 1.5fr 2fr 2fr 60px;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 0 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--text-body);
+  min-width: 820px;
+}
+
+.mg-steps-col-center {
+  text-align: center;
+}
+
+.mg-steps-grid-row {
+  display: grid;
+  grid-template-columns: 100px 110px 1.5fr 1.5fr 2fr 2fr 60px;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+  background: var(--surface);
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  min-width: 820px;
+}
+
+.mg-origin-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.mg-origin-badge--auto {
+  background: var(--success-bg-strong);
+  color: var(--success-text-strong);
+}
+
+.mg-origin-badge--manual {
+  background: var(--warning-bg-strong);
+  color: var(--warning-text-strong);
+}
+
+.mg-step-del-btn {
+  background: var(--dangerbg);
+  color: var(--danger);
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mg-step-del-btn:disabled {
+  background: var(--surface-subtle);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ---------- Footer del Modal ---------- */
+
+.mg-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.mg-btn-cancel {
+  background: var(--surface-subtle);
+  color: var(--ink);
+  border: 1px solid var(--border-strong);
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mg-btn-save {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+.modalTitleHeaderStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .mg-history-grid,
+  .mg-modal-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .mg-azure-row,
+  .mg-modal-grid-2 {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+}

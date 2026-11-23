@@ -1,0 +1,289 @@
+/* =========================================================
+   PREPARACIÓN DEL ENTORNO Y DISPOSITIVO POS (DEVICE SETUP)
+   ========================================================= */
+
+.ds-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.ds-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.ds-title {
+  margin: 0;
+  color: var(--ink);
+}
+
+.ds-validate-btn {
+  font-weight: 700;
+  padding: 6px 12px;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink);
+  transition: background-color 0.15s ease;
+}
+
+.ds-validate-btn:hover {
+  background: var(--surface-hover);
+}
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ds-block {
+  padding: 15px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.ds-block--row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.ds-block-title {
+  margin: 0 0 12px 0;
+  color: var(--ink);
+}
+
+.ds-block-title--sm {
+  margin: 0 0 8px 0;
+}
+
+.ds-block-title--xs {
+  margin: 0 0 5px 0;
+}
+
+/* ---------- Bloque 1: Servicios en segundo plano ---------- */
+
+.ds-service-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.ds-service-row--spaced {
+  margin-bottom: 12px;
+}
+
+.ds-service-status {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ds-service-status--active {
+  color: var(--success-accent);
+}
+
+.ds-service-status--stopped {
+  color: var(--muted);
+}
+
+.ds-service-btn {
+  color: #ffffff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.ds-service-btn--start {
+  background: var(--btn-brand-bg);
+}
+
+.ds-service-btn--start:hover:not(:disabled) {
+  background: var(--btn-brand-hover);
+}
+
+.ds-service-btn--stop {
+  background: var(--danger);
+}
+
+.ds-service-btn--stop:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+.ds-service-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ---------- Bloque 2: Conexión POS ---------- */
+
+.ds-mode-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.ds-mode-label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+  color: var(--text-body);
+}
+
+.ds-mode-label--active {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ds-adb-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ds-scan-btn {
+  font-weight: 700;
+  color: var(--btn-primary-text);
+  padding: 8px 12px;
+  background: var(--btn-primary-bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.ds-scan-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ds-select {
+  flex: 1;
+  min-width: 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  font-size: 13px;
+  background: var(--input-bg);
+  color: var(--text-strong);
+}
+
+.ds-wifi-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ds-serial-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ds-input {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  font-size: 12px;
+  background: var(--input-bg);
+  color: var(--text-strong);
+  box-sizing: border-box;
+}
+
+.ds-input--flex {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-input--port {
+  width: 55px;
+}
+
+.ds-connect-btn {
+  padding: 6px 10px;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ds-connect-btn--wifi {
+  background: #0284c7;
+}
+
+.ds-connect-btn--serial {
+  background: var(--btn-primary-bg);
+}
+
+.ds-connect-btn--connected {
+  background: var(--success-accent);
+}
+
+.ds-connect-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ---------- Bloque 3: Enlace de comunicación ---------- */
+
+.ds-link-desc {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ds-forward-btn {
+  font-weight: 700;
+  padding: 10px 18px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.ds-forward-btn--active {
+  background: var(--success-accent);
+}
+
+.ds-forward-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.ds-ready-badge {
+  font-weight: 700;
+  color: var(--success-accent);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .ds-grid {
+    grid-template-columns: 1fr;
+  }
+}
